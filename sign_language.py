@@ -14,7 +14,6 @@ while True:
     img = cv2.flip(img, 1)
     h,w,c = img.shape
     results = hands.process(img)
-    finger_fold_status=[]
 
     if results.multi_hand_landmarks:
         for hand_landmark in results.multi_hand_landmarks:
@@ -22,6 +21,7 @@ while True:
             lm_list=[]
             for id ,lm in enumerate(hand_landmark.landmark):
                 lm_list.append(lm)
+            finger_fold_status=[]
 
              #Code goes here
             for tip in finger_tips:
